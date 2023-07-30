@@ -1,0 +1,12 @@
+blinker==1.6.2
+click==8.1.3
+colorama==0.4.6
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+soupsieve==2.4.1
+Werkzeug==2.2.3
+flask==2.2.5
+gunicorn==21.2.0
+flask-sqlalchemy==3.0.5
+flask-login==0.6.2
