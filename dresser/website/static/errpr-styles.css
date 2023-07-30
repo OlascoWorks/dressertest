@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'errorFont';
+    src: url('./assets/fonts/Errorist-L3apg.otf');
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url(./assets/img/caveman.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.error-text {
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+}
+
+.error-text h1
+.error-text p {
+    font-family: 'errorFont', sans-serif;
+    color: #30333b;
+}
+
+@media (max-width: 620px) {
+    .error-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

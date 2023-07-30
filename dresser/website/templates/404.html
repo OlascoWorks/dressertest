@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}404{% endblock %}
+{% block head %}{% endblock %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='error-styles.css')}}"/>
+{% block extra_styles %}
+<!-- Uncomment below code if styles are not applied -->
+<!-- <style>
+    @font-face {
+        font-family: 'errorFont';
+        src: url('../static/assets/fonts/Errorist-L3apg.otf');
+    }
+
+    body {
+        height: 100vh;
+        background-image: url(../static/assets/img/caveman.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .error-text {
+        position: absolute;
+        left: 60%;
+        top: 50%;
+        transform: translate(0, -50%);
+        text-align: center;
+    }
+
+    .error-text h1
+    .error-text p {
+        font-family: 'errorFont', sans-serif;
+        color: #30333b;
+    }
+
+    @media (max-width: 620px) {
+        .error-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+</style> -->
+{% endblock %}
+{% block nav %}{% endblock %}
+{% block content %}
+<body>
+    <div class="error-text">
+        <h1>You Lost?</h1>
+        <p>Unfortunately, we couldn't find your desired destination</p>
+        <div class="btn btn-dark">Let us take you home</div>
+        <p class="mt-5">Want to contribute by creating custom error pages? <a href="#" class="no-deco">click here?</a></p>
+    </div>
+</body>
+
+{% endblock %}

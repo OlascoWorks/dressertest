@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Edit cloth{% endblock %}
+{% block extra_styles %}
+    <style>
+        .img-display {
+            background-image: url('data:image/png;base64,{{ cloth.image }}');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+{% block header %}Edit Cloth{% endblock %}
+{% block content %}
+<form method="post" class="form-1 mb-5" id="cloth-form" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="name" class="form-label">Cloth Name</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ cloth.name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Decription</label>
+        <input class="form-control" id="description" name="description" value="{{ cloth.description }}" required>
+    </div>
+    <div class="mb-3 img-display">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="commit" value="" name="commit" {% if cloth.isCommitted %}checked{% endif %}>
+        <label class="form-check-label" for="commit">Commit Cloth</label>
+    </div>
+    <div class="horizontal">
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="top" value="top" name="type" {% if cloth.type == 'top' %}checked{% endif %}>
+            <label class="form-check-label" for="top">Top</label>
+        </div>
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="bottom" value="bottom" name="type" {% if cloth.type == 'bottom' %}checked{% endif %}>
+            <label class="form-check-label" for="bottom">Bottom</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary center">Submit</button>
+</form>
+{% endblock %}

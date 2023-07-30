@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Generate{% endblock %}
+{% block extra_styles %}
+<style>
+    span {
+        font-size: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        font-style: oblique;
+    }
+
+    .card-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+{% endblock %}
+{% block header %}Generate{% endblock %}
+{% block content %}
+<div class="display-container free-center">
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body" style="position: relative;">
+          <p class="card-text">Top</p>
+        </div>
+    </div>
+    <span>+</span>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body" style="position: relative;">
+          <p class="card-text">Bottom</p>
+        </div>
+    </div>
+</div>
+<div class="mt-5 free-center">
+    <button class="btn btn-dark me-3" disabled>Blacklist</button>
+    <a href="{{ url_for('views.generate') }}" class="no-deco"><button class="btn btn-primary me-3">Generate</button></a>
+    <button class="btn btn-success me-3">Use Combo</button>
+</div>
+{% endblock %}

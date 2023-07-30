@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Create new cloth{% endblock %}
+{% block header %}New Cloth{% endblock %}
+{% block content %}
+<form method="post" class="form-1 mb-5" id="cloth-form" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="name" class="form-label">Cloth Name</label>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Decription</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="image">Image:</label>
+        <input type="file" class="form-control-file mb-2" name="image" id="image" accept="image/*" required>
+        <div class="dropzone" id="img">
+          <span>Drag and drop your file here, or click to select file</span>
+        </div>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="commit" value="commit" name="commit">
+        <label class="form-check-label" for="commit">Commit Cloth</label>
+    </div>
+    <div class="horizontal">
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="top" value="top" name="type">
+            <label class="form-check-label" for="top">Top</label>
+        </div>
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="bottom" value="bottom" name="type">
+            <label class="form-check-label" for="bottom">Bottom</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary center">Create</button>
+</form>
+{% endblock %}

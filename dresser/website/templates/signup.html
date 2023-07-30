@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock %}
+{% block header %}Signup{% endblock %}
+{% block content %}
+<form method="post" class="form-1 mb-5" id="signup-form" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" aria-required="true">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" aria-required="true">
+    </div>
+    <div class="mb-3">
+        <label for="password2" class="form-label">Re-enter Password</label>
+        <input type="password" class="form-control" id="password2" name="password2" aria-required="true">
+    </div>
+    <div class="mb-3">
+        <label for="image">Profile Picture:</label>
+        <input type="file" class="form-control-file mb-2" name="p-image" id="image" accept="image/*">
+        <div class="dropzone" id="p-img">
+          <span>Drag and drop your file here, or click to select file</span>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="male" value="male" name="gender" required>
+            <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="female" value="female" name="gender" required>
+            <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="mb-3 form-check me-3">
+            <input type="radio" class="form-check-input" id="none" value="none" name="gender" required>
+            <label class="form-check-label" for="none">Rather not say</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary center">Signup</button>
+</form>
+
+<a href="{{ url_for('auth.login') }}" class="mb-5 free-center">Already have an account?</a>
+{% endblock %}

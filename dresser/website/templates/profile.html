@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+    {% if no_pic == True %}
+        <div>
+            <div id="profile-pic" class="text-pic mt-3 free-center">{{ user.name[0] }}</div>
+            <h5 class="user_name free-center">{{ user.name }}</h5>
+        </div>
+        {% else %}
+        <div style="width: 100%;">
+            <div id="profile-pic" class="img-pic mt-3 free-center">
+            </div>
+            <h5 class="user_name free-center">{{ user.name }}</h5>
+        </div>
+    {% endif %}
+    
+    {% if combos|length >= 1 %}
+    <table class="table table-striped table-bordered table-hover free-center mt-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Top</th>
+            <th scope="col">Bottom</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for combo in combos %}
+                <tr class="combo-row" data-bs-toggle="modal" data-bs-target="#{{ combo.id }}comboModal">
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ combo.top }}</td>
+                    <td>{{ combo.bottom}}</td>
+                    <td>{{ combo.time }}</td>
+                    
+                    <div class="modal free-center" tabindex="-1" id="{{ combo.id }}comboModal">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <p>This combo is a combination of:</p>
+                                    <cite title="Source Title">Top: {{ combo.top }}</cite>
+                                    <cite title="Source Title">Bottom: {{ combo.bottom }}</cite>
+                                </div>
+                                <div class="modal-footer space-between-flex">
+                                    <div>
+                                        <a href="{{ url_for('views.combo_gateway', id=combo.id, action='delete') }}" class="no-deco"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    </div>
+                                    <div>
+                                        {% if combo.isBlacklisted == True %}
+                                        <a href="{{ url_for('views.combo_gateway', id=combo.id, action='unblacklist') }}" class="no-deco"><button type="button" class="btn btn-dark" data-bs-dismiss="modal">Un-Blacklist</button></a>
+                                        {% else %}
+                                        <a href="{{ url_for('views.combo_gateway', id=combo.id, action='blacklist') }}" class="no-deco"><button type="button" class="btn btn-dark" data-bs-dismiss="modal">Blacklist</button></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <div class="free-center mt-4 mb-3">You have not created any cloth combinations</div>
+    {% endif %}
+
+    <h2 class="stats free-center mt-5 mb-5">Stats</h2>
+    <div class="lists-container mt-5">
+        <ul class="list-group list-group-bg">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of cloths
+            <span class="badge bg-primary rounded-pill">{{ cloths }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Committed cloths
+            <span class="badge bg-primary rounded-pill">{{ comm_cloths }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Uncommitted cloths
+            <span class="badge bg-primary rounded-pill">{{ unc_cloths }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Tops
+            <span class="badge bg-primary rounded-pill">{{ tops }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Bottoms
+            <span class="badge bg-primary rounded-pill">{{ bottoms }}</span>
+            </li>
+        </ul>
+
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Total number of possible combinations
+            <span class="badge bg-primary rounded-pill">{{ possible_combos }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Created combinations
+            <span class="badge bg-primary rounded-pill">{{ combos|length }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Available combinations
+            <span class="badge bg-primary rounded-pill">{{ available_combos }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Used combinations
+            <span class="badge bg-primary rounded-pill">{{ used_combos }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            Blacklisted combinations
+            <span class="badge bg-primary rounded-pill">{{ blacklisted_combos }}</span>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

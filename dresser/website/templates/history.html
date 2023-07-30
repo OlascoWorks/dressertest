@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}History{% endblock %}
+{% block header %}History{% endblock %}
+{% block content %}
+<a style="margin-left: 80%;" href="{{ url_for('views.log_gateway', id=0, action='delete_all')}}" class="mt-2 mb-2">Delete All</a>
+{% for log in logs %}
+    {% if log.event == 'cloth create' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>New cloth `{{ log.name }}` was created</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% elif log.event == 'combo create' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ log.name }} was created</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% elif log.event == 'update' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Cloth `{{ log.name }}` was updated</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% elif log.event == 'combo update' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ log.name }} was updated</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% elif log.event == 'delete' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>`{{ log.name }}` was deleted</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% elif log.event == 'combo delete' %}
+        <div class="card mt-4 mb-2 center no-hover">
+            <div class="card-header space-between-flex">
+                {{ log.event }}
+                <a href="{{ url_for('views.log_gateway', id=log.id, action='delete') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ log.name }} was deleted</p>
+                <footer class="blockquote-footer">Performed <cite title="Source Title">{{ log.time }}</cite></footer>
+            </blockquote>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}

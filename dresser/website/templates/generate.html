@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Generate{% endblock %}
+{% block extra_styles %}
+<style>
+    span {
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        font-style: oblique;
+    }
+
+    .card-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+{% endblock %}
+{% block header %}Generate{% endblock %}
+{% block content %}
+<div class="display-container free-center">
+    <div class="card" style="width: 18rem;">
+        <img src="data:image/png;base64,{{ top.image }}" class="card-img-top" alt="{{ top.name }}">
+        <div class="card-body" style="position: relative;">
+          <p class="card-text">{{ top.name }}</p>
+        </div>
+    </div>
+    <span>+</span>
+    <div class="card" style="width: 18rem;">
+        <img src="data:image/png;base64,{{ bottom.image }}" class="card-img-top" alt="{{ bottom.name }}">
+        <div class="card-body" style="position: relative;">
+          <p class="card-text">{{ bottom.name }}</p>
+        </div>
+    </div>
+</div>
+<div class="mt-5 free-center">
+    <a href="{{ url_for('views.combo_create_gateway', top_id=top.id, bottom_id=bottom.id, action='blacklist') }}" class="no-deco"><button class="btn btn-dark me-3">Blacklist</button></a>
+    <a href="{{ url_for('views.generate') }}" class="no-deco"><button class="btn btn-primary me-3">Generate</button></a>
+    <a href="{{ url_for('views.combo_create_gateway', top_id=top.id, bottom_id=bottom.id, action='use') }}" class="no-deco"><button class="btn btn-success me-3">Use Combo</button></a>
+</div>
+{% endblock %}

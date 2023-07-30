@@ -1,0 +1,155 @@
+a {
+    text-decoration: none;
+}
+
+textarea {
+    height: 120px;
+    max-height: 150px;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#underline {
+    width: 50px;
+    height: 5px;
+    background-color: maroon;
+}
+
+.card:hover:not(.no-hover) {
+    max-width: 85%;
+    width: 85%;
+}
+
+.form-1 {
+    max-width: 80%;
+    width: 80%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.free-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.horizontal {
+    display: flex;
+}
+
+.highlight {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px dashed #999;
+}
+
+.dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    height: 200px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.dropzone:hover {
+    background-color: #f5f5f5;
+}
+
+.dropzone.active {
+    background-color: #f0f8ff;
+}
+
+.dropzone-message {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.text-pic {
+    background-color: #ccc;
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.img-pic {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0d6efd;
+    background-image: url('data:image/png;base64,{{ user.profile_pic }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-deco {
+    color: inherit;
+}
+
+.space-between-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-display {
+    max-width: 80%;
+    width: 80%;
+    max-height: 300px;
+    height: 300px;
+    border-radius: 25px;
+}
+
+.table {
+    position: relative;
+    max-width: 60%;
+    width: 60%;
+}
+
+.combo-row {
+    cursor: cell;
+}
+
+.display-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.lists-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list-group {
+    max-width: 30%;
+    width: 30%;
+}
+
+.list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+}
