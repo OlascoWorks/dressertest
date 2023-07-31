@@ -1,5 +1,7 @@
 import os
-from . import DB_NAME
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+DB_NAME = 'database.db'
 
 class Config:
  DEBUG = False
