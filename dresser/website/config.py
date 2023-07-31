@@ -8,7 +8,7 @@ class Config:
  DEVELOPMENT = False
  CSRF_ENABLED = True
  ASSETS_DEBUG = False
- SECRET_KEY = os.environ.get(SECRET_KEY)
+ SECRET_KEY = os.environ.get('SECRET_KEY')
  SQLALCHEMY_DATABASE_URI = f'sqlite:///{DB_NAME}'
 
 class ProductionConfig(Config):
