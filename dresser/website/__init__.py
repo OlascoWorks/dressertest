@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
-import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 db = SQLAlchemy()
 DB_NAME = 'database.db'
 
