@@ -7,8 +7,7 @@ DB_NAME = 'database.db'
 
 def create_app():
     app = Flask(__name__)
-    env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
-    app.config.from_object(env_config)
+    app.config.from_pyfile('config.py')
     db.init_app(app)
 
     from .views import views
